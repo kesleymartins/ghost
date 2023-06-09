@@ -1,15 +1,27 @@
 const storagePrefix = "ghost"
 
-let config = localStorage.getItem(`${storagePrefix}_config`)
+// Data Setup
+let data = localStorage.getItem(`${storagePrefix}_data`)
 
-if (config) {
-    config = JSON.parse(config)
+if (data) {
+    data = JSON.parse(data)
 } else {
-    default_config = {
-        "menu_option":"list"
+    default_data = {
+        "links": [] 
     }
 
-    localStorage.setItem(`${storagePrefix}_config`, JSON.stringify(default_config))
+    localStorage.setItem(`${storagePrefix}_data`, JSON.stringify(default_data))
 
-    config = default_config
+    data = default_data
 }
+
+// Form Logic
+const formSection = document.querySelector('section#form')
+const formToggleButton = formSection.querySelector('button#toggler')
+const form = formSection.querySelector('form')
+
+formToggleButton.addEventListener('click', event => {
+    event.preventDefault()
+
+    form.classList.toggle('hide')
+})

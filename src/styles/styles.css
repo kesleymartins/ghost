@@ -1,3 +1,9 @@
+/* HELPER */
+.hide {
+  display: none;
+}
+
+/* BASE LAYOUT */
 body {
   padding: 1em
 }
@@ -10,51 +16,55 @@ header {
 
 main {
   margin: 0.5em;
+  width: 200px;
 }
 
-#actions {
-  justify-content: center;
-  display: flex;
-  margin-bottom: 0.5em;
+footer {
+  text-align: center;
 }
 
-#actions > button {
-  width: 100px;
-  color: black;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 0;
-  margin: 0.1em;
-  padding: 0.5em 1em;
-}
-
-#actions > button:hover {
-  background-color: gray;
-  color: white;
-  cursor: pointer;
-}
-
-#actions .active {
-  background-color: black;
-  color: white;
-}
-
-#content #links {
+/* CONTENT SECTION */
+#content {
   display: flex;
   flex-direction: column;
+  font-family: 'Helvetica';
 }
 
-#content #links > a {
+#content > a {
   margin: 0.2em 0;
   text-decoration: none;
   color: black;
   transition: all;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
 }
 
-#content #links > a:hover {
+#content > a:hover {
   margin: 0.2em 0;
   text-decoration: none;
   color: black;
-  font-size: 1.3em;
+  font-size: 1.2em;
+}
+
+/* FORM SECTION */
+#form button {
+  width: 100%;
+  padding: 0.5em;
+  cursor: pointer;
+  margin-bottom: 3px;
+}
+
+#form button#toggler {
+  background-color: lightblue;
+  border: 1px solid lightskyblue;
+}
+
+#form form button {
+  background-color: lightgreen;
+  border: 1px solid greenyellow;
+}
+
+#form form input {
+  margin: 3px 0;
+  padding: 5px;
+  display: block;
 }

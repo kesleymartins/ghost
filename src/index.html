@@ -14,23 +14,26 @@
   <hr>
 
   <main>
-    <div id="actions">
-      <button>Listagem</button>
-      <button>Novo Host</button>
-    </div>
+    <section id="content">
+      <a href="#">Sinatra</a>
+      <a href="#">Rails</a>
+      <a href="#">PHP</a>
+      <a href="#">DZenvolve A</a>
+      <a href="#">DZenvolve B</a>
+    </section>
 
     <hr>
 
-    <div id="content">
-      <section id="links">
-        <a href="#">Sinatra</a>
-        <a href="#">Rails</a>
-        <a href="#">PHP</a>
-        <a href="#">DZenvolve A</a>
-        <a href="#">DZenvolve B</a>
-      </section>
-      <section id="form"></section>
-    </div>
+    <section id="form">
+      <button id="toggler">Novo Host</button>
+      
+      <form class="hide">
+        <input id="name" type="text" placeholder="name">
+        <input id="url" type="text" placeholder="url">
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
   </main>
 
   <hr>
