@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "G-host",
+  "version": "1.0",
+  "description": "salva suas urls",
+  "icons": {
+      "68": "/icons/icon.png"
+  },
+  "action": {
+      "default_popup": "/src/index.html"
+  }
+}

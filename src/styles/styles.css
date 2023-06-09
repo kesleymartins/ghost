@@ -1,0 +1,55 @@
+body {
+  padding: 1em
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+main {
+  margin: 0.5em;
+}
+
+#actions {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+#actions > button {
+  width: 100px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0;
+  margin: 0.1em;
+  padding: 0.5em 1em;
+}
+
+#actions > button:hover {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+#content #links {
+  display: flex;
+  flex-direction: column;
+}
+
+#content #links > a {
+  margin: 0.2em 0;
+  text-decoration: none;
+  color: black;
+  transition: all;
+  transition-duration: 0.4s;
+}
+
+#content #links > a:hover {
+  margin: 0.2em 0;
+  text-decoration: none;
+  color: black;
+  font-size: 1.3em;
+}
