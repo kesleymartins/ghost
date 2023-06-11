@@ -14,6 +14,19 @@ if (data) {
     data = default_data
 }
 
+// Set loaded links
+const contentSection = document.querySelector('section#content')
+
+data.links.forEach(link => {
+    const element = document.createElement('a')
+    
+    element.setAttribute('id', link.id)
+    element.setAttribute('href', link.url)
+    element.innerText = link.name
+
+    contentSection.appendChild(element)
+});
+
 // Form Logic
 const formSection = document.querySelector('section#form')
 const formToggleButton = formSection.querySelector('button#toggler')
