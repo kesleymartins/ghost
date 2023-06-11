@@ -11,7 +11,6 @@ if (data) {
     }
 
     localStorage.setItem(`${storagePrefix}_data`, JSON.stringify(default_data))
-
     data = default_data
 }
 
@@ -24,4 +23,19 @@ formToggleButton.addEventListener('click', event => {
     event.preventDefault()
 
     form.classList.toggle('hide')
+})
+
+form.addEventListener('submit', event => {
+    event.preventDefault()
+
+    const nameInput = form.querySelector('input#name')
+    const urlInput = form.querySelector('input#url')
+
+    data.links.push({
+        id: data.links.length + 1,
+        name: nameInput.value,
+        url: urlInput.value
+    })
+
+    localStorage.setItem(`${storagePrefix}_data`, JSON.stringify(data))
 })
