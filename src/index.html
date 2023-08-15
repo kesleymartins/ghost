@@ -7,33 +7,39 @@
     <link rel="stylesheet" type="text/css" href="styles/app.css">
 </head>
 <body>
-  <header>
+  <header class="header">
     G-host
   </header>
 
-  <hr>
-
   <main>
-    <section id="content">
+    <section id="tabs">
+      <ul>
+        <li id="is-active">
+          <a href="#" >Hosts</a>
+        </li>
+        <li>
+          <a href="#">Novo Host</a>
+        </li>
+      </ul>
     </section>
 
-    <hr>
+    <section id="hosts" class="content">
+      <div id="empty">
+        Quando você tiver hosts cadastrados eles serão listadas aqui. 
+      </div>
+    </section>
 
-    <section id="form">
-      <button id="toggler">Novo Host</button>
-      
-      <form class="hide">
-        <input id="name" type="text" placeholder="name">
-        <input id="url" type="text" placeholder="url">
+    <section id="form" class="content" hidden>
+      <form>
+        <input id="name" name="name" type="text" placeholder="name">
+        <input id="url" name="url" type="text" placeholder="url">
+
         <button type="submit">Adicionar</button>
       </form>
     </section>
-
   </main>
 
-  <hr>
-
-  <footer>
+  <footer class="content">
     <a href="https://www.github.com/kesleymartins" target="_blank">github</a>
   </footer>
 

@@ -1,70 +1,144 @@
-/* HELPER */
-.hide {
-  display: none;
+/* Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@300&display=swap');
+
+/* Variavles */
+:root {
+  --title: #1a5fb4;
+  --primary: #1c71d8;
+  --secondary: #3584e4;
+  --hover: #99c1f1;
+  --radius: 5px;
 }
 
-/* BASE LAYOUT */
+/* General */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
-  padding: 1em
+  width: 300px;
+  padding: 1em;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  font-size: 1.2em;
+a {
+  text-decoration: none;
 }
 
-main {
-  margin: 0.5em;
-  width: 200px;
+.content {
+  border: 1px solid black;
+  border-radius: var(--radius);
+  padding: 0.5em;
+  border-color: var(--primary);
 }
 
-footer {
+/* Header */
+.header {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: var(--title);
+  font-family: 'Montserrat', serif;
+}
+
+/* TABS */
+#tabs {
+  margin: 1em 0 0;
   text-align: center;
 }
 
-/* CONTENT SECTION */
-#content {
+#tabs ul {
   display: flex;
-  flex-direction: column;
-  font-family: 'Helvetica';
+  justify-content: center;
 }
 
-#content > a {
-  margin: 0.2em 0;
-  text-decoration: none;
-  color: black;
-  transition: all;
-  transition-duration: 0.2s;
+#tabs ul li {
+  width: 40%;
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 
-#content > a:hover {
-  margin: 0.2em 0;
-  text-decoration: none;
+#tabs ul li:hover {
+  background-color: var(--hover);
+}
+
+#tabs ul li#is-active {
+  border: 1px solid var(--primary);
+  border-bottom: none;
+}
+
+#tabs ul li a {
   color: black;
+  display: block;
+  padding: 0.5em;
+}
+
+/* Hosts */
+#hosts {
+  padding: 0.5em;
+}
+
+#hosts #empty {
+  text-align: center;
+}
+
+#hosts ul li a {
+  box-sizing: border-box;
+  display: block;
+  color: black;
+  margin: 0.3em;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+#hosts ul li a p {
   font-size: 1.2em;
 }
 
-/* FORM SECTION */
+#hosts ul li a span {
+  font-size: 0.9em;
+}
+
+#hosts ul li a:hover {
+  background-color: var(--hover);
+}
+
+/* Form */
+#form input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 0.5em;
+  margin: 0.3em 0;
+  outline: none;
+}
+
 #form button {
   width: 100%;
+  outline: none;
   padding: 0.5em;
+  border:  1px solid var(--primary);
+  border-radius: var(--radius);
+  text-align: center;
+  border-color: var(--primary);
+  background-color: white;
   cursor: pointer;
-  margin-bottom: 3px;
+  margin: 0.5em 0 0;
 }
 
-#form button#toggler {
-  background-color: lightblue;
-  border: 1px solid lightskyblue;
+#form button:focus {
+  background-color: var(--hover);
 }
 
-#form form button {
-  background-color: lightgreen;
-  border: 1px solid greenyellow;
+#form button:hover {
+  background-color: var(--hover);
 }
 
-#form form input {
-  margin: 3px 0;
-  padding: 5px;
-  display: block;
+/* Footer */
+footer {
+  text-align: center;
+  margin: 1em 0 0;
+}
+
+footer a {
+  color: black;
 }
