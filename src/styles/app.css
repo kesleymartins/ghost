@@ -60,7 +60,7 @@ a {
   background-color: var(--hover);
 }
 
-#tabs ul li#is-active {
+#tabs ul li.is-active {
   border: 1px solid var(--primary);
   border-bottom: none;
 }
@@ -93,7 +93,7 @@ a {
   font-size: 1.2em;
 }
 
-#hosts ul li a span {
+#hosts ul li a small {
   font-size: 0.9em;
 }
 
