@@ -1,10 +1,18 @@
-function TabsComponent(hostsComponent) {
+import { Tabs } from '../enums/tabs.js'
+
+function TabsComponent(hostsComponent, initialTab) {
   this.hostsComponent = hostsComponent
 
   this.tabs = document.querySelectorAll('#tabs ul li')
-  this.activeTab = tabs.querySelector('.is-active')
+  this.sections = document.querySelectorAll('section.content')
+  this.activeTab = initialTab
 
   this.mount = () => {
+    this.setupEvents()
+    this.activateTab()
+  }
+
+  this.setupEvents = () => {
     this.tabs.forEach(tab => {
       tab.addEventListener('click', (event) => {
         event.preventDefault()
@@ -12,27 +20,30 @@ function TabsComponent(hostsComponent) {
         if (tab.classList.contains('is-active')) {
           return
         }
-        
+
+        this.activeTab = tab.getAttribute('data-tab')
+        this.activateTab()
         this.hostsComponent.update()
-        this.activateTab(tab)
       })
     }) 
   }
 
-  this.activateTab = (tab) => {
-    const activeSectionId = this.activeTab.getAttribute('data-section-id')
-    const activeSection = document.querySelector(`#${activeSectionId}`)
-    
-    activeSection.setAttribute('hidden', '')
-    this.activeTab.classList.remove('is-active')
+  this.activateTab = () => {
+    this.tabs.forEach(tab => {
+      if (tab.getAttribute('data-tab') === this.activeTab) {
+        tab.classList.add('is-active')
+      } else {
+        tab.classList.remove('is-active')
+      }
+    })
 
-    const sectionToActivateId = tab.getAttribute('data-section-id')
-    const sectionToActivate = document.querySelector(`#${sectionToActivateId}`)
-
-    sectionToActivate.removeAttribute('hidden')
-    tab.classList.add('is-active')
-
-    this.activeTab = tab
+    this.sections.forEach(section => {
+      if (section.getAttribute('data-section') === this.activeTab) {
+        section.removeAttribute('hidden')
+      } else {
+        section.setAttribute('hidden', '')
+      }
+    })
   }
 }
 
