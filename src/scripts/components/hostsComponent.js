@@ -58,6 +58,15 @@ function HostsComponent(hostsStore) {
     return li
   }
 
+  this.setupHostRemoveEvent = (button, hostId) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault()
+     
+      this.hostsStore.removeHost(hostId)
+      this.updateview()
+    })
+  }
+
   this.clearHostsList = () => {
     this.hostsList.textContent = ''
   }
