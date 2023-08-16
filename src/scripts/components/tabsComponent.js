@@ -1,8 +1,10 @@
-function TabsComponent() {
+function TabsComponent(hostsComponent) {
+  this.hostsComponent = hostsComponent
+
   this.tabs = document.querySelectorAll('#tabs ul li')
   this.activeTab = tabs.querySelector('.is-active')
 
-  this.mount = (hostsStore) => {
+  this.mount = () => {
     this.tabs.forEach(tab => {
       tab.addEventListener('click', (event) => {
         event.preventDefault()

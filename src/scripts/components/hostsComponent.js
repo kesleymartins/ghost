@@ -1,15 +1,17 @@
-function HostsComponent() {
+function HostsComponent(hostsStore) {
+  this.hostsStore = hostsStore
+
   this.section = document.querySelector('#hosts')
   this.emptyMessage = this.section.querySelector('#empty')
   this.hostsList = this.section.querySelector('#list')
 
-  this.mount = (hostsStore) => {
-    hostsStore.fetchHosts()
+  this.mount = () => {
+    this.hostsStore.fetchHosts()
 
-    if (hostsStore.data && hostsStore.data.length > 0) {
+    if (this.hostsStore.data && this.hostsStore.data.length > 0) {
       this.hideEmptyMessage()
       this.cleanList()
-      this.fillList(hostsStore.data)
+      this.fillList(this.hostsStore.data)
     } else {
       this.hideHostsLists()
     }
