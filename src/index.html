@@ -35,8 +35,24 @@
 
     <section id="form" class="content" hidden>
       <form>
-        <input id="name" name="name" type="text" placeholder="name">
-        <input id="url" name="url" type="text" placeholder="url">
+        <fieldset>
+          <input id="name" name="name" type="text" placeholder="name">
+          <input id="url" name="url" type="text" placeholder="url">
+        </fieldset>
+
+        <fieldset class="protocol">
+          <legend>Escolha o procolo a ser prefixado:</legend>
+
+          <section class="item">
+            <input type="radio" id="protocol-2" name="protocol" value="http" checked />
+            <label for="protocol-2">http</label>
+          </section>
+
+          <section class="item">
+            <input type="radio" id="protocol-1" name="protocol" value="https" />
+            <label for="protocol-1">https</label>
+          </section>
+        </fieldset>
 
         <button type="submit">Adicionar</button>
       </form>
