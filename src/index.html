@@ -15,16 +15,16 @@
   <main>
     <section id="tabs">
       <ul>
-        <li class="is-active" data-section-id="hosts">
+        <li data-tab="hosts">
           <a href="#">Hosts</a>
         </li>
-        <li data-section-id="form">
+        <li data-tab="form">
           <a href="#">Novo Host</a>
         </li>
       </ul>
     </section>
 
-    <section id="hosts" class="content">
+    <section id="hosts" data-section="hosts" class="content">
       <ul id="list">
       </ul>
 
@@ -33,7 +33,7 @@
       </div>
     </section>
 
-    <section id="form" class="content" hidden>
+    <section id="form" data-section="form" class="content">
       <form>
         <fieldset>
           <input id="name" name="name" type="text" placeholder="name">
