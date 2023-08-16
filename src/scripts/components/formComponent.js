@@ -1,5 +1,9 @@
-function FormComponent(hostsStore) {
+import { Tabs } from '../enums/tabs.js'
+
+function FormComponent(hostsStore, tabsComponent) {
   this.hostsStore = hostsStore
+  this.tabsComponent = tabsComponent
+
   this.form = document.querySelector('#form form')
 
   this.mount = () => {
@@ -14,6 +18,7 @@ function FormComponent(hostsStore) {
       }
 
       this.hostsStore.addHost(newHost)
+      this.tabsComponent.changeToTab(Tabs.HOSTS)
     })
   }
 }
