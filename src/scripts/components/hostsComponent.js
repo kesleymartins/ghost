@@ -25,16 +25,16 @@ function HostsComponent(hostsStore) {
 
     if (this.hostsStore.data && this.hostsStore.data.length > 0) {
       this.hideEmptyMessage()
-      this.renderHostsList(this.hostsStore.data)
+      this.renderHostsList()
     } else {
       this.hideHostsList()
     }
   }
 
-  this.renderHostsList = (hosts) => {
+  this.renderHostsList = () => {
     this.clearHostsList()
 
-    hosts.forEach(host => {
+    this.hostsStore.data.forEach(host => {
       const listItem = this.createListItem(host) 
       this.hostsList.appendChild(listItem)
     })
