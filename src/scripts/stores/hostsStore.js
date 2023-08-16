@@ -14,6 +14,17 @@ function HostsStore() {
     this.data.push(newHost)
     localStorage.setItem(this.storageName, JSON.stringify(this.data))
   }
+  
+  /**
+    * Função para remover um host
+    * 
+    * @param {number} hostId
+    */
+  this.removeHost = (hostId) => {
+    this.fetchHosts()
+    this.data = this.data.filter(host => host.id !== hostId)
+    localStorage.setItem(this.storageName, JSON.stringify(this.data))
+  }
 }
 
 export { HostsStore }
