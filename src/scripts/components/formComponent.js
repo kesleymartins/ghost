@@ -9,17 +9,21 @@ function FormComponent(hostsStore, tabsComponent) {
   this.mount = () => {
     this.form.addEventListener('submit', (event) => {
       event.preventDefault()
-      
-      const formData = new FormData(this.form)
-
-      const newHost = {
-        "name": formData.get('name'),
-        "url": `${formData.get('protocol')}://${formData.get('url')}`
-      }
+     
+      const newHost = this.buildNewHost()
 
       this.hostsStore.addHost(newHost)
       this.tabsComponent.changeToTab(Tabs.HOSTS)
     })
+  }
+
+  this.buildNewHost = () => {
+    const formData = new FormData(this.form)
+
+    return {
+      "name": formData.get('name'),
+      "url": `${formData.get('protocol')}://${formData.get('url')}`
+    }
   }
 }
 
