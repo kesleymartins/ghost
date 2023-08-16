@@ -42,43 +42,48 @@ function HostsComponent(hostsStore) {
 
   this.createListItem = (host) => {
     const li = document.createElement('li')
-    const span = document.createElement('span')
-    const img = document.createElement('img')
+    li.setAttribute('id', host.id)
+
+    li.appendChild(this.createLink(host))
+    li.append(this.createRemoveButton(host.id))
+
+    return li
+  }
+
+  this.createLink = (host) => {
     const a = document.createElement('a')
     const p = document.createElement('p')
     const small = document.createElement('small')
-        
-    li.setAttribute('id', host.id)
-    
-    span.classList.add('icon')
-    this.setupHostRemoveEvent(span, host.id)
-
-    img.setAttribute('src', './icons/close.svg')
-    img.setAttribute('alt', 'trash icon')
 
     a.setAttribute('href', host.url)
     a.setAttribute('target', '_blank')
     p.innerText = host.name
     small.innerText = host.url
     
-    span.appendChild(img)
-  
     a.appendChild(p)
     a.appendChild(small)
 
-    li.appendChild(a)
-    li.append(span)
-
-    return li
+    return a
   }
 
-  this.setupHostRemoveEvent = (button, hostId) => {
-    button.addEventListener('click', (event) => {
+  this.createRemoveButton = (hostId) => {
+    const span = document.createElement('span')
+    const img = document.createElement('img')
+
+    span.classList.add('icon')
+    img.setAttribute('src', './icons/close.svg')
+    img.setAttribute('alt', 'trash icon')
+
+    span.appendChild(img)
+
+    span.addEventListener('click', (event) => {
       event.preventDefault()
      
       this.hostsStore.removeHost(hostId)
       this.updateview()
     })
+
+    return span
   }
 
   this.clearHostsList = () => {
