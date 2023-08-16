@@ -3,9 +3,9 @@ import { HostsComponent } from './hostsComponent.js'
 import { TabsComponent } from './tabsComponent.js'
 
 const hostsStore = new HostsStore()
-const hostsComponent = new HostsComponent()
 const tabsComponent = new TabsComponent()
+const hostsComponent = new HostsComponent()
 
 hostsStore.fetchHosts()
-hostsComponent.mount(hostsStore.data)
 tabsComponent.mount()
+hostsComponent.mount(hostsStore.data)
