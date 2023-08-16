@@ -12,6 +12,11 @@ function TabsComponent(hostsComponent, initialTab) {
     this.activateTab()
   }
 
+  this.changeToTab = (tabName) => {
+    this.activeTab = tabName
+    this.activateTab()
+  }
+
   this.setupEvents = () => {
     this.tabs.forEach(tab => {
       tab.addEventListener('click', (event) => {
@@ -23,12 +28,15 @@ function TabsComponent(hostsComponent, initialTab) {
 
         this.activeTab = tab.getAttribute('data-tab')
         this.activateTab()
-        this.hostsComponent.update()
       })
     }) 
   }
 
   this.activateTab = () => {
+    if (this.activeTab === Tabs.HOSTS) {
+        this.hostsComponent.update()
+    }
+
     this.tabs.forEach(tab => {
       if (tab.getAttribute('data-tab') === this.activeTab) {
         tab.classList.add('is-active')
