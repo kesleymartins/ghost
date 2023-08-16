@@ -6,8 +6,8 @@ import { FormComponent } from './components/formComponent.js'
 
 const hostsStore = new HostsStore()
 const hostsComponent = new HostsComponent(hostsStore)
-const formComponent = new FormComponent(hostsStore)
 const tabsComponent = new TabsComponent(hostsComponent, Tabs.HOSTS)
+const formComponent = new FormComponent(hostsStore, tabsComponent)
 
 hostsComponent.mount()
 formComponent.mount()
