@@ -3,11 +3,13 @@ function HostsComponent() {
   this.emptyMessage = this.section.querySelector('#empty')
   this.hostsList = this.section.querySelector('#list')
 
-  this.mount = (hosts) => {
-    if (hosts && hosts.length > 0) {
+  this.mount = (hostsStore) => {
+    hostsStore.fetchHosts()
+
+    if (hostsStore.data && hostsStore.data.length > 0) {
       this.hideEmptyMessage()
       this.cleanList()
-      this.fillList(hosts)
+      this.fillList(hostsStore.data)
     } else {
       this.hideHostsLists()
     }
