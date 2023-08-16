@@ -6,45 +6,52 @@ function HostsComponent(hostsStore) {
   this.hostsList = this.section.querySelector('#list')
 
   this.mount = () => {
+    this.updateview()
+  }
+
+  this.update = () => {
+    this.updateview()
+  }
+
+  this.updateview = () => {
     this.hostsStore.fetchHosts()
 
     if (this.hostsStore.data && this.hostsStore.data.length > 0) {
       this.hideEmptyMessage()
-      this.cleanList()
-      this.fillList(this.hostsStore.data)
+      this.renderHostsList(this.hostsStore.data)
     } else {
-      this.hideHostsLists()
+      this.hideHostsList()
     }
   }
 
-  this.update = () => {
-    this.hostsStore.fetchHosts()
+  this.renderHostsList = (hosts) => {
+    this.clearHostsList()
 
-    this.cleanList()
-    this.fillList(this.hostsStore.data)
-  }
-
-  this.fillList = (hosts) => {
     hosts.forEach(host => {
-      const li = document.createElement('li')
-      const a = document.createElement('a')
-      const p = document.createElement('p')
-      const small = document.createElement('small')
-
-      a.setAttribute('href', host.url)
-      a.setAttribute('target', '_blank')
-      p.innerText = host.name
-      small.innerText = host.url
-
-      a.appendChild(p)
-      a.appendChild(small)
-      li.appendChild(a)
-
-      this.hostsList.appendChild(li)
+      const listItem = this.createListItem(host) 
+      this.hostsList.appendChild(listItem)
     })
   }
 
-  this.cleanList = () => {
+  this.createListItem = (host) => {
+    const li = document.createElement('li')
+    const a = document.createElement('a')
+    const p = document.createElement('p')
+    const small = document.createElement('small')
+
+    a.setAttribute('href', host.url)
+    a.setAttribute('target', '_blank')
+    p.innerText = host.name
+    small.innerText = host.url
+
+    a.appendChild(p)
+    a.appendChild(small)
+    li.appendChild(a)
+
+    return li
+  }
+
+  this.clearHostsList = () => {
     this.hostsList.textContent = ''
   }
 
@@ -52,7 +59,7 @@ function HostsComponent(hostsStore) {
     this.emptyMessage.setAttribute('hidden', true)
   }
 
-  this.hideHostsLists = () => {
+  this.hideHostsList = () => {
     this.hostsList.setAttribute('hidden', true)
   }
 }

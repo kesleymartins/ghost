@@ -2,7 +2,7 @@ function FormComponent(hostsStore) {
   this.hostsStore = hostsStore
   this.form = document.querySelector('#form form')
 
-  this.mount = (hostsStore) => {
+  this.mount = () => {
     this.form.addEventListener('submit', (event) => {
       event.preventDefault()
       

@@ -8,12 +8,8 @@ function HostsStore() {
   } 
 
   this.addHost = (newHost) => {
-    this.fetchHosts()
-
-    newHost = {
-      "id": this.data.length,
-      ...newHost
-    }
+    const id = this.data.length
+    newHost = { id, ...newHost }
 
     this.data.push(newHost)
     localStorage.setItem(this.storageName, JSON.stringify(this.data))
