@@ -1,5 +1,12 @@
 import { Tabs } from '../enums/tabs.js'
+import { HostsComponent } from './hostsComponent.js'
 
+/**
+  * Component para lidar com a troca da abas e mostrar a seção correta
+  *
+  * @param {HostsComponent} hostsComponent 
+  * @param {Tabs} initialTab 
+  */
 function TabsComponent(hostsComponent, initialTab) {
   this.hostsComponent = hostsComponent
 

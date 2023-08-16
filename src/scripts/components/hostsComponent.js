@@ -1,3 +1,10 @@
+import { HostsStore } from "../stores/hostsStore.js"
+
+/**
+  * Store para lidar com o CRUD de hosts no localStorage
+  *
+  * @param {HostsStore} hostsStore 
+  */
 function HostsComponent(hostsStore) {
   this.hostsStore = hostsStore
 

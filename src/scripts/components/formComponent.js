@@ -1,5 +1,13 @@
 import { Tabs } from '../enums/tabs.js'
+import { HostsStore } from '../stores/hostsStore.js'
+import { TabsComponent } from './tabsComponent.js'
 
+/**
+  * Component para lidar com o formulário de criação de novos Hosts
+  *
+  * @param {HostsStore} hostsStore 
+  * @param {TabsComponent} tabsComponent 
+  */
 function FormComponent(hostsStore, tabsComponent) {
   this.hostsStore = hostsStore
   this.tabsComponent = tabsComponent
