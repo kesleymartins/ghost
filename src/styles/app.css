@@ -110,6 +110,31 @@ a {
   padding: 0.5em;
   margin: 0.3em 0;
   outline: none;
+  font-size: 0.9em;
+}
+
+#form .protocol {
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 0.5em;
+  margin: 0.7em 0 0 0 ;
+  
+  display: flex;
+  justify-content: center;
+}
+
+#form .protocol .item {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+
+#form .protocol .item * {
+  cursor: pointer;
+}
+
+#form .protocol .item label {
+  margin: 0 5px;
 }
 
 #form button {
