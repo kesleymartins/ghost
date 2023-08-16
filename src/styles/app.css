@@ -24,11 +24,15 @@ a {
   text-decoration: none;
 }
 
+.icon {
+  margin: auto;
+  cursor: pointer;
+}
+
 .content {
-  border: 1px solid black;
+  border: 1px solid var(--primary);
   border-radius: var(--radius);
   padding: 0.5em;
-  border-color: var(--primary);
 }
 
 /* Header */
@@ -73,19 +77,30 @@ a {
 
 /* Hosts */
 #hosts {
-  padding: 0.5em;
+  padding: 0.3em;
 }
 
 #hosts #empty {
   text-align: center;
 }
 
+#hosts ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+#hosts ul li a:hover {
+  background-color: var(--hover);
+}
+
 #hosts ul li a {
+  border-radius: var(--radius);
+  padding: 0.2em;
+  width: 80%;
   box-sizing: border-box;
   display: block;
   color: black;
   margin: 0.3em;
-  border-radius: var(--radius);
   cursor: pointer;
 }
 
@@ -95,10 +110,6 @@ a {
 
 #hosts ul li a small {
   font-size: 0.9em;
-}
-
-#hosts ul li a:hover {
-  background-color: var(--hover);
 }
 
 /* Form */
