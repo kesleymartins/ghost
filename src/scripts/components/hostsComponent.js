@@ -17,6 +17,13 @@ function HostsComponent(hostsStore) {
     }
   }
 
+  this.update = () => {
+    this.hostsStore.fetchHosts()
+
+    this.cleanList()
+    this.fillList(this.hostsStore.data)
+  }
+
   this.fillList = (hosts) => {
     hosts.forEach(host => {
       const li = document.createElement('li')

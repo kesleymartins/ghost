@@ -12,8 +12,8 @@ function TabsComponent(hostsComponent) {
         if (tab.classList.contains('is-active')) {
           return
         }
-
-        hostsStore.fetchHosts()
+        
+        this.hostsComponent.update()
         this.activateTab(tab)
       })
     }) 
