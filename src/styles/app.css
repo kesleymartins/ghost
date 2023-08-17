@@ -3,9 +3,10 @@
 
 /* Variavles */
 :root {
-  --title: #1a5fb4;
-  --primary: #1c71d8;
+  --primary: #1a5fb4;
+  --primary-light: #1c71d8;
   --secondary: #3584e4;
+  --secondary-light: #62a0ea;
   --hover: #99c1f1;
   --radius: 5px;
 }
