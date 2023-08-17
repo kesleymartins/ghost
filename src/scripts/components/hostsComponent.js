@@ -24,10 +24,10 @@ function HostsComponent(hostsStore) {
     this.hostsStore.fetchHosts()
 
     if (this.hostsStore.data && this.hostsStore.data.length > 0) {
-      this.hideEmptyMessage()
+      this.setupHostsList()
       this.renderHostsList()
     } else {
-      this.hideHostsList()
+      this.renderEmptyMessage()
     }
   }
 
@@ -90,12 +90,14 @@ function HostsComponent(hostsStore) {
     this.hostsList.textContent = ''
   }
 
-  this.hideEmptyMessage = () => {
-    this.emptyMessage.setAttribute('hidden', true)
+  this.renderHostsList = () => {
+    this.hostsList.removeAttribute('hidden')
+    this.emptyMessage.setAttribute('hidden', '')
   }
 
-  this.hideHostsList = () => {
-    this.hostsList.setAttribute('hidden', true)
+  this.renderEmptyMessage = () => {
+    this.emptyMessage.removeAttribute('hidden')
+    this.hostsList.setAttribute('hidden', '')
   }
 }
 
