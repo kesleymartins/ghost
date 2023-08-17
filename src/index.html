@@ -36,8 +36,19 @@
     <section id="form" data-section="form" class="content">
       <form>
         <fieldset>
-          <input id="name" name="name" type="text" placeholder="name">
-          <input id="url" name="url" type="text" placeholder="url">
+          <section class="field">
+            <input id="name" class="input" name="name" type="text" placeholder="name">
+            <span id="name-error" class="error-message">
+              Campo requerido
+            </span>
+          </section>
+
+          <section class="field">
+            <input id="url" class="input" name="url" type="text" placeholder="url">
+            <span id="url-error" class="error-message">
+              Campo requerido
+            </span>
+          </section>  
         </fieldset>
 
         <fieldset class="protocol">

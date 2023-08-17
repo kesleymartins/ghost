@@ -8,6 +8,8 @@
   --secondary: #3584e4;
   --secondary-light: #62a0ea;
   --hover: #99c1f1;
+  --error: #ed333b;
+  --ok: #57e389; 
   --radius: 5px;
 }
 
@@ -114,15 +116,38 @@ a {
 }
 
 /* Form */
-#form input {
+
+#form .field {
+  margin: 0 0 0.6em;
+}
+
+#form .field .input {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid var(--secondary);
   border-radius: var(--radius);
   padding: 0.5em;
-  margin: 0.3em 0;
   outline: none;
   font-size: 0.9em;
+}
+
+#form .field .input.has-error {
+  border: 1px solid var(--error); 
+}
+
+#form .field .input.ok {
+  border: 1px solid var(--ok);
+}
+
+#form .field .input.has-error + .error-message {
+  display: inline-block;
+}
+
+#form .field .error-message {
+  display: none;
+  font-size: 0.9em;
+  margin-top: 0.3em;
+  color: var(--error);
 }
 
 #form .protocol {
