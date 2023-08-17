@@ -11,19 +11,56 @@ import { TabsComponent } from './tabsComponent.js'
 function FormComponent(hostsStore, tabsComponent) {
   this.hostsStore = hostsStore
   this.tabsComponent = tabsComponent
+  this.isValid = false
 
   this.form = document.querySelector('#form form')
 
   this.mount = () => {
+    const formInputs = this.form.querySelectorAll('input.input')
+
+    formInputs.forEach(input => {
+      input.addEventListener('input', () => {
+        this.updateValidationStatus(input)
+      })
+    })
+
     this.form.addEventListener('submit', (event) => {
       event.preventDefault()
-     
+      
+      this.validateForm()
+
+      if (false === this.isValid) {
+        return
+      }
+
       const newHost = this.buildNewHost()
 
       this.hostsStore.addHost(newHost)
       this.tabsComponent.changeToTab(Tabs.HOSTS)
       this.clearForm()
     })
+  }
+
+  this.validateForm = () => {
+    const formInputs = this.form.querySelectorAll('input.input')
+    
+    this.isValid = [...formInputs].every(input => input.value.trim() !== "")
+
+    if (false === this.isValid) {
+      formInputs.forEach(input => this.updateValidationStatus(input))
+    }
+  }
+
+  this.updateValidationStatus = (input) => {
+    if (input.value.trim() === "") {
+      input.classList.remove('ok')
+      input.classList.add('has-error')
+
+      return
+    }
+
+    input.classList.remove('has-error')
+    input.classList.add('ok')
   }
 
   this.buildNewHost = () => {
