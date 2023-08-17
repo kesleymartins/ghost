@@ -153,21 +153,22 @@ a {
   width: 100%;
   outline: none;
   padding: 0.5em;
-  border:  1px solid var(--primary);
+  border:  1px solid var(--secondary);
   border-radius: var(--radius);
   text-align: center;
-  border-color: var(--primary);
-  background-color: white;
+  border-color: var(--secondary);
+  background-color: var(--hover);
   cursor: pointer;
   margin: 0.5em 0 0;
+  font-size: 1.1em;
 }
 
 #form button:focus {
-  background-color: var(--hover);
+  background-color: var(--secondary-light);
 }
 
 #form button:hover {
-  background-color: var(--hover);
+  background-color: var(--secondary-light);
 }
 
 /* Footer */
