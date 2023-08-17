@@ -31,7 +31,7 @@ function HostsComponent(hostsStore) {
     }
   }
 
-  this.renderHostsList = () => {
+  this.setupHostsList = () => {
     this.clearHostsList()
 
     this.hostsStore.data.forEach(host => {
