@@ -9,7 +9,7 @@ import { FormComponent } from './formComponent.js'
   */
 function TabsComponent() {
   const tabs = document.querySelectorAll('#tabs ul li')
-  const sections = document.querySelectorAll('section.content')
+  const sections = document.querySelectorAll('div.content')
 
   let activeTab
   let hostsComponent
