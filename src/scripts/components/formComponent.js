@@ -8,9 +8,16 @@ import { TabsComponent } from './tabsComponent.js'
  * @constructor
  */
 function FormComponent() {
+  /** @type {boolean} */
   let formIsValid = false
+
+  /** @type {HTMLFormElement} */
   let formElement = document.querySelector('#form form')
+  
+  /** @type {HostsStore} */
   let hostsStore
+
+  /** @type {TabsComponent} */
   let tabsComponent
 
   /**

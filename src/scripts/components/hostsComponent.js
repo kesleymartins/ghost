@@ -6,9 +6,13 @@ import { HostsStore } from "../stores/hostsStore.js"
  * @constructor
  */
 function HostsComponent() {
+  /** @type {HTMLDivElement} */
   const emptyMessage = document.querySelector('#hosts #empty')
+  
+  /** @type {HTMLUListElement} */
   const hostsList = document.querySelector('#hosts #list')
 
+  /** @type {HostsStore} */
   let hostsStore
 
   /**

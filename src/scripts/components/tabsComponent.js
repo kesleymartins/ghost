@@ -8,11 +8,20 @@ import { FormComponent } from './formComponent.js'
   * @param {Tabs} initialTab                - Aba inicial 
   */
 function TabsComponent() {
+  /** @type {NodeListOf<HTMLLIElement>} */
   const tabs = document.querySelectorAll('#tabs ul li')
+  
+  /** @type {NodeListOf<HTMLDivElement>} */
   const sections = document.querySelectorAll('div.content')
 
+  /** @type {Tabs} */
   let activeTab
+
+  /** @type {HostsComponent} */
   let hostsComponent
+
+  /** @type {FormComponent} */
+  let formComponent
 
   /**
    * Lógica de inicialização

@@ -4,7 +4,10 @@ import '../utils/types.js'
  * Store para lidar com o CRUD de Host
  */
 function HostsStore() {
+  /** @type {Array<Host>} */
   this.data = [] 
+
+  /** @type {string} */
   const storageName = "ghost_hosts"
   
   /**
