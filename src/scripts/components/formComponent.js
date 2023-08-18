@@ -44,7 +44,6 @@ function FormComponent() {
 
       hostsStore.addHost(newHost)
       tabsComponent.changeToTab(Tabs.HOSTS)
-      clearForm()
     })
   }
 
@@ -97,15 +96,6 @@ function FormComponent() {
       "name": formData.get('name'),
       "url": `${formData.get('protocol')}://${formData.get('url')}`
     }
-  }
-  
-  /**
-   * Limpa os dados do formulário
-   *
-   * @private
-   */
-  function clearForm() {
-    formElement.reset()
   }
 }
 
