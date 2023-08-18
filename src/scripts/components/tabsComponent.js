@@ -4,8 +4,8 @@ import { FormComponent } from './formComponent.js'
 /**
   * Component para lidar com a troca da abas e mostrar a seção correta
   *
-  * @param {HostsComponent} hostsComponent 
-  * @param {Tabs} initialTab 
+  * @param {HostsComponent} hostsComponent  - Instância de HostsComponent 
+  * @param {Tabs} initialTab                - Aba inicial 
   */
 function TabsComponent() {
   const tabs = document.querySelectorAll('#tabs ul li')
