@@ -64,7 +64,7 @@ function HostsComponent(hostsStore) {
    *
    * @param {Host} host 
    *
-   * @returns {HTMLElement}     - Um elemento <li>
+   * @returns {HTMLLIElement}     - Um elemento <li>
    */
   function createListItem(host) {
     const li = document.createElement('li')
@@ -83,7 +83,7 @@ function HostsComponent(hostsStore) {
    *
    * @param {Host} host 
    *
-   * @return {HTMLElement}      - um elemento <a>
+   * @return {HTMLAnchorElement}      - um elemento <a>
    */
   function createLink(host) {
     const a = document.createElement('a')
