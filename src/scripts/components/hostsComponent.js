@@ -62,10 +62,7 @@ function HostsComponent(hostsStore) {
    *
    * @private
    *
-   * @param {Object} host
-   * @param {number} host.id    - Identificação do Host
-   * @param {string} host.name  - Nome do Host
-   * @param {string} host.url   - link de redirecionamento do host 
+   * @param {Host} host 
    *
    * @returns {HTMLElement}     - Um elemento <li>
    */
@@ -84,10 +81,7 @@ function HostsComponent(hostsStore) {
    *
    * @private
    *
-   * @param {Object} host
-   * @param {string} host.id    - Identificação do Host
-   * @param {string} host.name  - Nome do Host
-   * @param {string} host.url   - link de redirecionamento do host
+   * @param {Host} host 
    *
    * @return {HTMLElement}      - um elemento <a>
    */
