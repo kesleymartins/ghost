@@ -4,17 +4,20 @@ import { HostsStore } from "../stores/hostsStore.js"
  * Componente para realizar a listagem de Hosts 
  *
  * @constructor
- *
- * @param {HostsStore} hostsStore 
  */
-function HostsComponent(hostsStore) {
+function HostsComponent() {
   const emptyMessage = document.querySelector('#hosts #empty')
   const hostsList = document.querySelector('#hosts #list')
-  
+
+  let hostsStore
+
   /**
    * Lógica de inicialização
+   *
+   * @param {HostsStore} hs - Instância de HostsStore
    */
-  this.mount = () => {
+  this.mount = (hs) => {
+    hostsStore = hs
     updateView()
   }
 

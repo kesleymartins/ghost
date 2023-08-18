@@ -3,21 +3,26 @@ import { HostsStore } from '../stores/hostsStore.js'
 import { TabsComponent } from './tabsComponent.js'
 
 /**
-  * Component para lidar com o formulário de criação de Hosts
-  *
-  * @constructor
-  *
-  * @param {HostsStore} hostsStore 
-  * @param {TabsComponent} tabsComponent 
-  */
-function FormComponent(hostsStore, tabsComponent) {
+ * Component para lidar com o formulário de criação de Hosts
+ *
+ * @constructor
+ */
+function FormComponent() {
   let formIsValid = false
   let formElement = document.querySelector('#form form')
+  let hostsStore
+  let tabsComponent
 
   /**
    * Lógica de inicialização
+   *
+   * @param {HostsStore} hs     - Instância de HostsStore
+   * @param {TabsComponent} tc  - Instância de TabsComponent
    */
-  this.mount = () => {
+  this.mount = (hs, tc) => {
+    hostsStore = hs
+    tabsComponent = tc
+
     const formInputs = formElement.querySelectorAll('input.input')
 
     formInputs.forEach(input => {

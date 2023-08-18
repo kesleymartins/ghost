@@ -7,15 +7,23 @@ import { HostsComponent } from './hostsComponent.js'
   * @param {HostsComponent} hostsComponent 
   * @param {Tabs} initialTab 
   */
-function TabsComponent(hostsComponent, initialTab) {
+function TabsComponent() {
   const tabs = document.querySelectorAll('#tabs ul li')
   const sections = document.querySelectorAll('section.content')
-  let activeTab = initialTab
-  
+
+  let activeTab
+  let hostsComponent
+
   /**
    * Lógica de inicialização
+   *
+   * @param {HostsComponent} hc - Instância de HostsComponent
+   * @param {string} initialTab - Aba a ser montada inicialmente
    */
-  this.mount = () => {
+  this.mount = (hc, initialTab) => {
+    hostsComponent = hc
+    activeTab = initialTab
+
     setupEvents()
     activateTab()
   }

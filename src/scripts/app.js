@@ -6,10 +6,10 @@ import { FormComponent } from './components/formComponent.js'
 import './utils/types.js'
 
 const hostsStore = new HostsStore()
-const hostsComponent = new HostsComponent(hostsStore)
-const tabsComponent = new TabsComponent(hostsComponent, Tabs.HOSTS)
-const formComponent = new FormComponent(hostsStore, tabsComponent)
+const hostsComponent = new HostsComponent()
+const tabsComponent = new TabsComponent()
+const formComponent = new FormComponent()
 
-hostsComponent.mount()
-formComponent.mount()
-tabsComponent.mount()
+hostsComponent.mount(hostsStore)
+formComponent.mount(hostsStore, tabsComponent)
+tabsComponent.mount(hostsComponent, Tabs.HOSTS)
