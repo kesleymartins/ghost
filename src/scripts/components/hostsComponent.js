@@ -13,14 +13,14 @@ function HostsComponent(hostsStore) {
   this.hostsList = this.section.querySelector('#list')
 
   this.mount = () => {
-    this.updateview()
+    this.updateView()
   }
 
   this.update = () => {
-    this.updateview()
+    this.updateView()
   }
 
-  this.updateview = () => {
+  this.updateView = () => {
     this.hostsStore.fetchHosts()
 
     if (this.hostsStore.data && this.hostsStore.data.length > 0) {
@@ -80,7 +80,7 @@ function HostsComponent(hostsStore) {
       event.preventDefault()
      
       this.hostsStore.removeHost(hostId)
-      this.updateview()
+      this.updateView()
     })
 
     return span
