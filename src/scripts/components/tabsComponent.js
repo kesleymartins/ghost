@@ -65,7 +65,7 @@ function TabsComponent() {
    */
   function activateTab() {
     if (activeTab === Tabs.HOSTS) {
-        hostsComponent.update()
+      hostsComponent.update()
     }
 
     tabs.forEach(tab => {
