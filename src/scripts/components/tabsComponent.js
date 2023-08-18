@@ -66,8 +66,16 @@ function TabsComponent() {
    * @private
    */
   function activateTab() {
+    switch (activeTab) {
+      case Tabs.HOSTS:
+        hostsComponent.update()
+        break
+      case Tabs.FORM:
+        formComponent.resetForm()
+        break
+    }
+
     if (activeTab === Tabs.HOSTS) {
-      hostsComponent.update()
     }
 
     tabs.forEach(tab => {
