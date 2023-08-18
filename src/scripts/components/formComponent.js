@@ -48,6 +48,21 @@ function FormComponent() {
   }
 
   /**
+   * Limpa os dados do formulário e remove 
+   * informações de successo e erro
+   */
+  this.resetForm = () => {
+    formElement.reset()
+
+    const classesToRemove = ['has-error', 'ok']  
+    const formInputs = formElement.querySelectorAll('input.input')
+    
+    formInputs.forEach(input => {
+      classesToRemove.forEach(className => input.classList.remove(className)) 
+    })
+  }
+
+  /**
    * Realiza a validação do formulário
    *
    * @private
