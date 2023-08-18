@@ -1,6 +1,6 @@
 import { Tabs } from '../enums/tabs.js'
 import { HostsComponent } from './hostsComponent.js'
-
+import { FormComponent } from './formComponent.js' 
 /**
   * Component para lidar com a troca da abas e mostrar a seção correta
   *
@@ -17,11 +17,13 @@ function TabsComponent() {
   /**
    * Lógica de inicialização
    *
-   * @param {HostsComponent} hc - Instância de HostsComponent
-   * @param {string} initialTab - Aba a ser montada inicialmente
+   * @param {HostsComponent} hc   - Instância de HostsComponent
+   * @param {FormComponent} fc    - Instância de FormComponent
+   * @param {string} initialTab   - Aba a ser montada inicialmente
    */
-  this.mount = (hc, initialTab) => {
+  this.mount = (hc, fc, initialTab) => {
     hostsComponent = hc
+    formComponent = fc
     activeTab = initialTab
 
     setupEvents()

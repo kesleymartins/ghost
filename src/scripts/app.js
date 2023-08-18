@@ -12,4 +12,4 @@ const formComponent = new FormComponent()
 
 hostsComponent.mount(hostsStore)
 formComponent.mount(hostsStore, tabsComponent)
-tabsComponent.mount(hostsComponent, Tabs.HOSTS)
+tabsComponent.mount(hostsComponent, formComponent, Tabs.HOSTS)
