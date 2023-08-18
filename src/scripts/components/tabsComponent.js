@@ -14,16 +14,29 @@ function TabsComponent(hostsComponent, initialTab) {
   this.sections = document.querySelectorAll('section.content')
   this.activeTab = initialTab
 
+  /**
+   * Lógica de inicialização
+   */
   this.mount = () => {
     this.setupEvents()
     this.activateTab()
   }
 
+  /**
+   * Lógica para a mudança de abas com base no enum Tabs
+   *
+   * @params {string} tabName
+   */
   this.changeToTab = (tabName) => {
     this.activeTab = tabName
     this.activateTab()
   }
 
+  /**
+   * Configura os eventos de click para mudança entre abas
+   *
+   * @private
+   */
   this.setupEvents = () => {
     this.tabs.forEach(tab => {
       tab.addEventListener('click', (event) => {
@@ -39,6 +52,11 @@ function TabsComponent(hostsComponent, initialTab) {
     }) 
   }
 
+  /**
+   * Ativa uma aba com base no atributo activeTab
+   *
+   * @private
+   */
   this.activateTab = () => {
     if (this.activeTab === Tabs.HOSTS) {
         this.hostsComponent.update()

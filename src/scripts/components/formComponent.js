@@ -3,7 +3,9 @@ import { HostsStore } from '../stores/hostsStore.js'
 import { TabsComponent } from './tabsComponent.js'
 
 /**
-  * Component para lidar com o formulário de criação de novos Hosts
+  * Component para lidar com o formulário de criação de Hosts
+  *
+  * @constructor
   *
   * @param {HostsStore} hostsStore 
   * @param {TabsComponent} tabsComponent 
@@ -15,6 +17,9 @@ function FormComponent(hostsStore, tabsComponent) {
 
   this.form = document.querySelector('#form form')
 
+  /**
+   * Lógica de inicialização
+   */
   this.mount = () => {
     const formInputs = this.form.querySelectorAll('input.input')
 
@@ -41,6 +46,11 @@ function FormComponent(hostsStore, tabsComponent) {
     })
   }
 
+  /**
+   * Realiza a validação do formulário
+   *
+   * @private
+   */
   this.validateForm = () => {
     const formInputs = this.form.querySelectorAll('input.input')
     
@@ -50,7 +60,15 @@ function FormComponent(hostsStore, tabsComponent) {
       formInputs.forEach(input => this.updateValidationStatus(input))
     }
   }
-
+  
+  /**
+   * Atualiza o status de validação mostrando de forma visual 
+   * se aquele campo preenche os requisitos necessários
+   *
+   * @private
+   *
+   * @param {HTMLInputElement} input
+   */
   this.updateValidationStatus = (input) => {
     if (input.value.trim() === "") {
       input.classList.remove('ok')
@@ -62,7 +80,14 @@ function FormComponent(hostsStore, tabsComponent) {
     input.classList.remove('has-error')
     input.classList.add('ok')
   }
-
+  
+  /**
+   * Retorna um novo Host {Object} usando as informações do formulário
+   * 
+   * @private
+   * 
+   * @return {Host}
+   */
   this.buildNewHost = () => {
     const formData = new FormData(this.form)
 
@@ -71,7 +96,12 @@ function FormComponent(hostsStore, tabsComponent) {
       "url": `${formData.get('protocol')}://${formData.get('url')}`
     }
   }
-
+  
+  /**
+   * Limpa os dados do formulário
+   *
+   * @private
+   */
   this.clearForm = () => {
     this.form.reset()
   }
