@@ -8,18 +8,16 @@ import { HostsComponent } from './hostsComponent.js'
   * @param {Tabs} initialTab 
   */
 function TabsComponent(hostsComponent, initialTab) {
-  this.hostsComponent = hostsComponent
-
-  this.tabs = document.querySelectorAll('#tabs ul li')
-  this.sections = document.querySelectorAll('section.content')
-  this.activeTab = initialTab
-
+  const tabs = document.querySelectorAll('#tabs ul li')
+  const sections = document.querySelectorAll('section.content')
+  let activeTab = initialTab
+  
   /**
    * Lógica de inicialização
    */
   this.mount = () => {
-    this.setupEvents()
-    this.activateTab()
+    setupEvents()
+    activateTab()
   }
 
   /**
@@ -28,8 +26,8 @@ function TabsComponent(hostsComponent, initialTab) {
    * @params {string} tabName
    */
   this.changeToTab = (tabName) => {
-    this.activeTab = tabName
-    this.activateTab()
+    activeTab = tabName
+    activateTab()
   }
 
   /**
@@ -37,8 +35,8 @@ function TabsComponent(hostsComponent, initialTab) {
    *
    * @private
    */
-  this.setupEvents = () => {
-    this.tabs.forEach(tab => {
+  function setupEvents() {
+    tabs.forEach(tab => {
       tab.addEventListener('click', (event) => {
         event.preventDefault()
 
@@ -46,8 +44,8 @@ function TabsComponent(hostsComponent, initialTab) {
           return
         }
 
-        this.activeTab = tab.getAttribute('data-tab')
-        this.activateTab()
+        activeTab = tab.getAttribute('data-tab')
+        activateTab()
       })
     }) 
   }
@@ -57,21 +55,21 @@ function TabsComponent(hostsComponent, initialTab) {
    *
    * @private
    */
-  this.activateTab = () => {
-    if (this.activeTab === Tabs.HOSTS) {
-        this.hostsComponent.update()
+  function activateTab() {
+    if (activeTab === Tabs.HOSTS) {
+        hostsComponent.update()
     }
 
-    this.tabs.forEach(tab => {
-      if (tab.getAttribute('data-tab') === this.activeTab) {
+    tabs.forEach(tab => {
+      if (tab.getAttribute('data-tab') === activeTab) {
         tab.classList.add('is-active')
       } else {
         tab.classList.remove('is-active')
       }
     })
 
-    this.sections.forEach(section => {
-      if (section.getAttribute('data-section') === this.activeTab) {
+    sections.forEach(section => {
+      if (section.getAttribute('data-section') === activeTab) {
         section.removeAttribute('hidden')
       } else {
         section.setAttribute('hidden', '')

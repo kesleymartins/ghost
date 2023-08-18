@@ -8,24 +8,21 @@ import { HostsStore } from "../stores/hostsStore.js"
  * @param {HostsStore} hostsStore 
  */
 function HostsComponent(hostsStore) {
-  this.hostsStore = hostsStore
-
-  this.section = document.querySelector('#hosts')
-  this.emptyMessage = this.section.querySelector('#empty')
-  this.hostsList = this.section.querySelector('#list')
+  const emptyMessage = document.querySelector('#hosts #empty')
+  const hostsList = document.querySelector('#hosts #list')
   
   /**
    * Lógica de inicialização
    */
   this.mount = () => {
-    this.updateView()
+    updateView()
   }
 
   /**
    * Logica de atualização
    */
   this.update = () => {
-    this.updateView()
+    updateView()
   }
 
   /**
@@ -34,14 +31,14 @@ function HostsComponent(hostsStore) {
    *
    * @private
    */
-  this.updateView = () => {
-    this.hostsStore.fetchHosts()
+  function updateView() {
+    hostsStore.fetchHosts()
 
-    if (this.hostsStore.data && this.hostsStore.data.length > 0) {
-      this.setupHostsList()
-      this.renderHostsList()
+    if (hostsStore.data && hostsStore.data.length > 0) {
+      setupHostsList()
+      renderHostsList()
     } else {
-      this.renderEmptyMessage()
+      renderEmptyMessage()
     }
   }
 
@@ -50,13 +47,13 @@ function HostsComponent(hostsStore) {
    *
    * @private
    */
-  this.setupHostsList = () => {
-    this.clearHostsList()
+  function setupHostsList() {
+    clearHostsList()
 
-    this.hostsStore.data.forEach(host => {
-      const listItem = this.createListItem(host) 
+    hostsStore.data.forEach(host => {
+      const listItem = createListItem(host)
       
-      this.hostsList.appendChild(listItem)
+      hostsList.appendChild(listItem)
     })
   }
   
@@ -72,12 +69,12 @@ function HostsComponent(hostsStore) {
    *
    * @returns {HTMLElement}     - Um elemento <li>
    */
-  this.createListItem = (host) => {
+  function createListItem(host) {
     const li = document.createElement('li')
     li.setAttribute('id', host.id)
 
-    li.appendChild(this.createLink(host))
-    li.append(this.createRemoveButton(host.id))
+    li.appendChild(createLink(host))
+    li.append(createRemoveButton(host.id))
 
     return li
   }
@@ -94,7 +91,7 @@ function HostsComponent(hostsStore) {
    *
    * @return {HTMLElement}      - um elemento <a>
    */
-  this.createLink = (host) => {
+  function createLink(host) {
     const a = document.createElement('a')
     const p = document.createElement('p')
     const small = document.createElement('small')
@@ -119,7 +116,7 @@ function HostsComponent(hostsStore) {
    *
    * @return {HTMLElement}    -  Um elemento <span>
    */
-  this.createRemoveButton = (hostId) => {
+  function createRemoveButton(hostId) {
     const span = document.createElement('span')
     const img = document.createElement('img')
 
@@ -131,9 +128,9 @@ function HostsComponent(hostsStore) {
 
     span.addEventListener('click', (event) => {
       event.preventDefault()
-     
-      this.hostsStore.removeHost(hostId)
-      this.updateView()
+
+      hostsStore.removeHost(hostId)
+      updateView()
     })
 
     return span
@@ -144,8 +141,8 @@ function HostsComponent(hostsStore) {
    *
    * @private
    */
-  this.clearHostsList = () => {
-    this.hostsList.textContent = ''
+  function clearHostsList() {
+    hostsList.textContent = ''
   }
 
   /**
@@ -154,9 +151,9 @@ function HostsComponent(hostsStore) {
    *
    * @private
    */
-  this.renderHostsList = () => {
-    this.hostsList.removeAttribute('hidden')
-    this.emptyMessage.setAttribute('hidden', '')
+  function renderHostsList() {
+    hostsList.removeAttribute('hidden')
+    emptyMessage.setAttribute('hidden', '')
   }
   
   /**
@@ -165,9 +162,9 @@ function HostsComponent(hostsStore) {
    *
    * @private
    */
-  this.renderEmptyMessage = () => {
-    this.emptyMessage.removeAttribute('hidden')
-    this.hostsList.setAttribute('hidden', '')
+  function renderEmptyMessage() {
+    emptyMessage.removeAttribute('hidden')
+    hostsList.setAttribute('hidden', '')
   }
 }
 

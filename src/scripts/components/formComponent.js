@@ -11,38 +11,35 @@ import { TabsComponent } from './tabsComponent.js'
   * @param {TabsComponent} tabsComponent 
   */
 function FormComponent(hostsStore, tabsComponent) {
-  this.hostsStore = hostsStore
-  this.tabsComponent = tabsComponent
-  this.isValid = false
-
-  this.form = document.querySelector('#form form')
+  let formIsValid = false
+  let formElement = document.querySelector('#form form')
 
   /**
    * Lógica de inicialização
    */
   this.mount = () => {
-    const formInputs = this.form.querySelectorAll('input.input')
+    const formInputs = formElement.querySelectorAll('input.input')
 
     formInputs.forEach(input => {
       input.addEventListener('input', () => {
-        this.updateValidationStatus(input)
+        updateValidationStatus(input)
       })
     })
 
-    this.form.addEventListener('submit', (event) => {
+    formElement.addEventListener('submit', (event) => {
       event.preventDefault()
       
-      this.validateForm()
+      validateForm()
 
-      if (false === this.isValid) {
+      if (false === formIsValid) {
         return
       }
 
-      const newHost = this.buildNewHost()
+      const newHost = buildNewHost()
 
-      this.hostsStore.addHost(newHost)
-      this.tabsComponent.changeToTab(Tabs.HOSTS)
-      this.clearForm()
+      hostsStore.addHost(newHost)
+      tabsComponent.changeToTab(Tabs.HOSTS)
+      clearForm()
     })
   }
 
@@ -51,13 +48,13 @@ function FormComponent(hostsStore, tabsComponent) {
    *
    * @private
    */
-  this.validateForm = () => {
-    const formInputs = this.form.querySelectorAll('input.input')
+  function validateForm() {
+    const formInputs = formElement.querySelectorAll('input.input')
     
-    this.isValid = [...formInputs].every(input => input.value.trim() !== "")
+    formIsValid = [...formInputs].every(input => input.value.trim() !== "")
 
-    if (false === this.isValid) {
-      formInputs.forEach(input => this.updateValidationStatus(input))
+    if (false === formIsValid) {
+      formInputs.forEach(input => updateValidationStatus(input))
     }
   }
   
@@ -69,7 +66,7 @@ function FormComponent(hostsStore, tabsComponent) {
    *
    * @param {HTMLInputElement} input
    */
-  this.updateValidationStatus = (input) => {
+  function updateValidationStatus(input) {
     if (input.value.trim() === "") {
       input.classList.remove('ok')
       input.classList.add('has-error')
@@ -88,8 +85,8 @@ function FormComponent(hostsStore, tabsComponent) {
    * 
    * @return {Host}
    */
-  this.buildNewHost = () => {
-    const formData = new FormData(this.form)
+  function buildNewHost() {
+    const formData = new FormData(formElement)
 
     return {
       "name": formData.get('name'),
@@ -102,8 +99,8 @@ function FormComponent(hostsStore, tabsComponent) {
    *
    * @private
    */
-  this.clearForm = () => {
-    this.form.reset()
+  function clearForm() {
+    formElement.reset()
   }
 }
 
