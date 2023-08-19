@@ -9,7 +9,7 @@ function HostsComponent() {
   /** @type {HTMLDivElement} */
   const emptyMessage = document.querySelector('#hosts #empty')
   
-  /** @type {HTMLUListElement} */
+  /** @type {HTMLDivElement} */
   const hostsList = document.querySelector('#hosts #list')
 
   /** @type {HostsStore} */
@@ -56,12 +56,16 @@ function HostsComponent() {
    */
   function setupHostsList() {
     clearHostsList()
+    
+    const ul = document.createElement('ul')
 
     hostsStore.data.forEach(host => {
       const listItem = createListItem(host)
       
-      hostsList.appendChild(listItem)
+      ul.appendChild(listItem)
     })
+
+    hostsList.appendChild(ul)
   }
   
   /**
