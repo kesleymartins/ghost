@@ -84,9 +84,6 @@ function TabsComponent() {
         break
     }
 
-    if (activeTab === Tabs.HOSTS) {
-    }
-
     tabs.forEach(tab => {
       if (tab.getAttribute('data-tab') === activeTab) {
         tab.classList.add('is-active')
