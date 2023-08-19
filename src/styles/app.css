@@ -78,25 +78,23 @@ a {
   padding: 0.5em;
 }
 
-/* Hosts */
-.hosts-component {
+.tab-content {
   padding: 0.3em;
+  border: 1px solid var(--secondary);
+  border-radius: var(--radius);
 }
 
-.hosts-component #empty {
-  text-align: center;
-}
-
-.hosts-component ul li {
+/* Hosts */
+.hosts-component .list-section li {
   display: flex;
   justify-content: space-between;
 }
 
-.hosts-component ul li a:hover {
+.hosts-component .list-section li a:hover {
   background-color: var(--hover);
 }
 
-.hosts-component ul li a {
+.hosts-component .list-section li a {
   border-radius: var(--radius);
   padding: 0.2em;
   width: 80%;
@@ -115,6 +113,11 @@ a {
   font-size: 0.9em;
 }
 
+.hosts-component .message-section {
+  text-align: center;
+  padding: 1em 0
+}
+
 /* Form */
 .form-component .field {
   margin: 0 0 0.6em;
@@ -128,6 +131,7 @@ a {
   padding: 0.5em;
   outline: none;
   font-size: 0.9em;
+  transition: all 0.5s;
 }
 
 .form-component .field .input.has-error {
@@ -138,15 +142,15 @@ a {
   border: 1px solid var(--ok);
 }
 
-.form-component .field .input.has-error + .error-message {
-  display: inline-block;
-}
-
 .form-component .field .error-message {
   display: none;
   font-size: 0.9em;
   margin-top: 0.3em;
   color: var(--error);
+}
+
+.form-component .field .input.has-error + .error-message {
+  display: inline-block;
 }
 
 .form-component .protocol {
@@ -185,14 +189,17 @@ a {
   cursor: pointer;
   margin: 0.5em 0 0;
   font-size: 1.1em;
+  transition: all 0.3s;
 }
 
 .form-component button:focus {
   background-color: var(--secondary-light);
+  color: white;
 }
 
 .form-component button:hover {
   background-color: var(--secondary-light);
+  color: white;
 }
 
 /* Footer */
