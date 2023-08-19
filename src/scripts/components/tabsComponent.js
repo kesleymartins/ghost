@@ -12,7 +12,7 @@ function TabsComponent() {
   const tabs = document.querySelectorAll('#tabs ul li')
   
   /** @type {NodeListOf<HTMLDivElement>} */
-  const sections = document.querySelectorAll('div.content')
+  const sections = document.querySelectorAll('#tab-content > div')
 
   /** @type {Tabs} */
   let activeTab
