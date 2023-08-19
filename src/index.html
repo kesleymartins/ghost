@@ -9,7 +9,7 @@
 </head>
 <body>
   <header class="header">
-    G-host
+    <h1>Ghost</h1>
   </header>
 
   <main>
@@ -23,50 +23,52 @@
         </li>
       </ul>
     </div>
+    
+    <div id="tab-content" class="tab-content">
+      <div id="hosts" data-section="hosts" class="hosts-component">
+        <div id="list" class="list-section">
+        </div>
 
-    <div id="hosts" data-section="hosts" class="hosts-component content">
-      <ul id="list">
-      </ul>
-
-      <div id="empty">
-        Quando você tiver hosts cadastrados eles serão listadas aqui. 
+        <div id="empty" class="message-section">
+          <p>Quando você tiver hosts cadastrados eles serão listadas aqui.</p>
+        </div>
       </div>
-    </div>
 
-    <div id="form" data-section="form" class="form-component content">
-      <form>
-        <fieldset>
-          <section class="field">
-            <input id="name" class="input" name="name" type="text" placeholder="name">
-            <span id="name-error" class="error-message">
-              Campo requerido
-            </span>
-          </section>
+      <div id="form" data-section="form" class="form-component">
+        <form>
+          <fieldset>
+            <section class="field">
+              <input id="name" class="input" name="name" type="text" placeholder="name">
+              <span id="name-error" class="error-message">
+                Campo requerido
+              </span>
+            </section>
 
-          <section class="field">
-            <input id="url" class="input" name="url" type="text" placeholder="url">
-            <span id="url-error" class="error-message">
-              Campo requerido
-            </span>
-          </section>  
-        </fieldset>
+            <section class="field">
+              <input id="url" class="input" name="url" type="text" placeholder="url">
+              <span id="url-error" class="error-message">
+                Campo requerido
+              </span>
+            </section>  
+          </fieldset>
 
-        <fieldset class="protocol">
-          <legend>Protocolo a ser prefixado:</legend>
+          <fieldset class="protocol">
+            <legend>Protocolo a ser prefixado:</legend>
 
-          <section class="item">
-            <input type="radio" id="protocol-2" name="protocol" value="http" checked />
-            <label for="protocol-2">http</label>
-          </section>
+            <section class="item">
+              <input type="radio" id="protocol-2" name="protocol" value="http" checked />
+              <label for="protocol-2">http</label>
+            </section>
 
-          <section class="item">
-            <input type="radio" id="protocol-1" name="protocol" value="https" />
-            <label for="protocol-1">https</label>
-          </section>
-        </fieldset>
+            <section class="item">
+              <input type="radio" id="protocol-1" name="protocol" value="https" />
+              <label for="protocol-1">https</label>
+            </section>
+          </fieldset>
 
-        <button type="submit">Adicionar</button>
-      </form>
+          <button type="submit">Adicionar</button>
+        </form>
+      </div>
     </div>
   </main>
 
