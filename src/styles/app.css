@@ -48,55 +48,55 @@ a {
 }
 
 /* TABS */
-#tabs {
+.tabs-component {
   margin: 1em 0 0;
   text-align: center;
 }
 
-#tabs ul {
+.tabs-component ul {
   display: flex;
   justify-content: center;
 }
 
-#tabs ul li {
+.tabs-component ul li {
   width: 40%;
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-#tabs ul li:hover {
+.tabs-component ul li:hover {
   background-color: var(--hover);
 }
 
-#tabs ul li.is-active {
+.tabs-component ul li.is-active {
   border: 1px solid var(--primary);
   border-bottom: none;
 }
 
-#tabs ul li a {
+.tabs-component ul li a {
   color: black;
   display: block;
   padding: 0.5em;
 }
 
 /* Hosts */
-#hosts {
+.hosts-component {
   padding: 0.3em;
 }
 
-#hosts #empty {
+.hosts-component #empty {
   text-align: center;
 }
 
-#hosts ul li {
+.hosts-component ul li {
   display: flex;
   justify-content: space-between;
 }
 
-#hosts ul li a:hover {
+.hosts-component ul li a:hover {
   background-color: var(--hover);
 }
 
-#hosts ul li a {
+.hosts-component ul li a {
   border-radius: var(--radius);
   padding: 0.2em;
   width: 80%;
@@ -107,21 +107,21 @@ a {
   cursor: pointer;
 }
 
-#hosts ul li a p {
+.hosts-component ul li a p {
   font-size: 1.2em;
 }
 
-#hosts ul li a small {
+.hosts-component ul li a small {
   font-size: 0.9em;
 }
 
 /* Form */
 
-#form .field {
+.form-component .field {
   margin: 0 0 0.6em;
 }
 
-#form .field .input {
+.form-component .field .input {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid var(--secondary);
@@ -131,26 +131,26 @@ a {
   font-size: 0.9em;
 }
 
-#form .field .input.has-error {
+.form-component .field .input.has-error {
   border: 1px solid var(--error); 
 }
 
-#form .field .input.ok {
+.form-component .field .input.ok {
   border: 1px solid var(--ok);
 }
 
-#form .field .input.has-error + .error-message {
+.form-component .field .input.has-error + .error-message {
   display: inline-block;
 }
 
-#form .field .error-message {
+.form-component .field .error-message {
   display: none;
   font-size: 0.9em;
   margin-top: 0.3em;
   color: var(--error);
 }
 
-#form .protocol {
+.form-component .protocol {
   border: 1px solid var(--secondary);
   border-radius: var(--radius);
   padding: 0.5em;
@@ -160,21 +160,21 @@ a {
   justify-content: center;
 }
 
-#form .protocol .item {
+.form-component .protocol .item {
   display: flex;
   align-items: center;
   margin: 0 5px;
 }
 
-#form .protocol .item * {
+.form-component .protocol .item * {
   cursor: pointer;
 }
 
-#form .protocol .item label {
+.form-component .protocol .item label {
   margin: 0 5px;
 }
 
-#form button {
+.form-component button {
   width: 100%;
   outline: none;
   padding: 0.5em;
@@ -188,11 +188,11 @@ a {
   font-size: 1.1em;
 }
 
-#form button:focus {
+.form-component button:focus {
   background-color: var(--secondary-light);
 }
 
-#form button:hover {
+.form-component button:hover {
   background-color: var(--secondary-light);
 }
 
