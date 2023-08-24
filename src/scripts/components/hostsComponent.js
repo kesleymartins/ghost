@@ -141,6 +141,28 @@ function HostsComponent() {
     return span
   }
 
+  /** 
+   * @private
+   *
+   * Cria o elemento com a lógica de edição de um Host
+   *
+   * @param {number} hostId     - Identificação do host
+   *
+   * @return {HTMLSpanElement}  - um elemento <span>
+   */
+  function createEditButton(hostId) {
+    const span = document.createElement('span')
+    const img = document.createElement('img')
+
+    span.classList.add('icon')
+    img.setAttribute('src', './icons/edit.svg')
+    img.setAttribute('alt', 'edit icon')
+
+    span.appendChild(img)
+
+    return span
+  }
+
   /**
    * Remove todos os Hosts listados atualmente
    *
