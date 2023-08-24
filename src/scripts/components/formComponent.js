@@ -8,15 +8,15 @@ import { TabsComponent } from './tabsComponent.js'
  * @constructor
  */
 function FormComponent() {
+  /** @type {HTMLFormElement} */
+  const formElement = document.querySelector('#form form')
+  
   /** @type {NodeListOf<HTMLInputElement>} */
   const formInputs = formElement.querySelectorAll('input.input')
 
   /** @type {boolean} */
   let formIsValid = false
 
-  /** @type {HTMLFormElement} */
-  let formElement = document.querySelector('#form form')
-  
   /** @type {HostsStore} */
   let hostsStore
 
