@@ -80,7 +80,7 @@ function TabsComponent() {
         hostsComponent.update()
         break
       case Tabs.FORM:
-        formComponent.resetForm()
+         formComponent.resetForm()
         break
     }
 
