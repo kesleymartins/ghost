@@ -27,11 +27,6 @@ a {
   text-decoration: none;
 }
 
-.icon {
-  margin: auto;
-  cursor: pointer;
-}
-
 .content {
   border: 1px solid var(--primary);
   border-radius: var(--radius);
@@ -96,12 +91,11 @@ a {
 
 .hosts-component .list-section li a {
   border-radius: var(--radius);
-  padding: 0.2em;
+  padding: 0.5em;
   width: 80%;
   box-sizing: border-box;
   display: block;
   color: black;
-  margin: 0.3em;
   cursor: pointer;
 }
 
@@ -111,6 +105,20 @@ a {
 
 .hosts-component ul li a small {
   font-size: 0.9em;
+}
+
+.hosts-component ul li .actions {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+}
+
+.hosts-component ul li .actions .icon {
+  display: block;
+  width: 24px;
+  cursor: pointer;
 }
 
 .hosts-component .message-section {
