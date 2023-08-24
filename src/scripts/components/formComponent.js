@@ -8,6 +8,9 @@ import { TabsComponent } from './tabsComponent.js'
  * @constructor
  */
 function FormComponent() {
+  /** @type {NodeListOf<HTMLInputElement>} */
+  const formInputs = formElement.querySelectorAll('input.input')
+
   /** @type {boolean} */
   let formIsValid = false
 
@@ -29,8 +32,6 @@ function FormComponent() {
   this.mount = (hs, tc) => {
     hostsStore = hs
     tabsComponent = tc
-
-    const formInputs = formElement.querySelectorAll('input.input')
 
     formInputs.forEach(input => {
       input.addEventListener('input', () => {
@@ -62,7 +63,6 @@ function FormComponent() {
     formElement.reset()
 
     const classesToRemove = ['has-error', 'ok']  
-    const formInputs = formElement.querySelectorAll('input.input')
     
     formInputs.forEach(input => {
       classesToRemove.forEach(className => input.classList.remove(className)) 
@@ -75,8 +75,6 @@ function FormComponent() {
    * @private
    */
   function validateForm() {
-    const formInputs = formElement.querySelectorAll('input.input')
-    
     formIsValid = [...formInputs].every(input => input.value.trim() !== "")
 
     if (false === formIsValid) {
