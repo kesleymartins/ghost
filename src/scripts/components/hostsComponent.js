@@ -126,7 +126,7 @@ function HostsComponent() {
     const img = document.createElement('img')
 
     span.classList.add('icon')
-    img.setAttribute('src', './icons/close.svg')
+    img.setAttribute('src', './icons/remove.svg')
     img.setAttribute('alt', 'trash icon')
 
     span.appendChild(img)
