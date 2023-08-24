@@ -33,26 +33,8 @@ function FormComponent() {
     hostsStore = hs
     tabsComponent = tc
 
-    formInputs.forEach(input => {
-      input.addEventListener('input', () => {
-        updateValidationStatus(input)
-      })
-    })
-
-    formElement.addEventListener('submit', (event) => {
-      event.preventDefault()
-      
-      validateForm()
-
-      if (false === formIsValid) {
-        return
-      }
-
-      const newHost = buildNewHost()
-
-      hostsStore.addHost(newHost)
-      tabsComponent.changeToTab(Tabs.HOSTS)
-    })
+    setupSubmitEvent()
+    setupValidationEvent()
   }
 
   /**
@@ -66,6 +48,41 @@ function FormComponent() {
     
     formInputs.forEach(input => {
       classesToRemove.forEach(className => input.classList.remove(className)) 
+    })
+  }
+
+  /**
+   * Configura evento de validação dos inputs do formulário
+   *
+   * @private
+   */
+  function setupValidationEvent() {
+    formInputs.forEach(input => {
+      input.addEventListener('input', () => {
+        updateValidationStatus(input)
+      }) 
+    })  
+  }
+
+  /**
+   * Configura evento de quando o formulario é enviado
+   *
+   * @private
+   */
+  function setupSubmitEvent() {
+    formElement.addEventListener('submit', (event) => {
+      event.preventDefault()
+      
+      validateForm()
+
+      if (false === formIsValid) {
+        return
+      }
+
+      const newHost = buildNewHost()
+
+      hostsStore.addHost(newHost)
+      tabsComponent.changeToTab(Tabs.HOSTS)
     })
   }
 
