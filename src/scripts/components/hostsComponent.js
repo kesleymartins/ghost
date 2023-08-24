@@ -80,10 +80,13 @@ function HostsComponent() {
   function createListItem(host) {
     const li = document.createElement('li')
     li.setAttribute('id', host.id)
+    
+    const link = createLink(host)
+    const actions = createLinkActions(host.id)
 
-    li.appendChild(createLink(host))
-    li.append(createRemoveButton(host.id))
-
+    li.appendChild(link)
+    li.appendChild(actions)
+    
     return li
   }
   
@@ -110,6 +113,28 @@ function HostsComponent() {
     a.appendChild(small)
 
     return a
+  }
+
+  /**
+   * @private
+   *
+   * Cria o elemento actions que engloba editButton e removeButton
+   *
+   * @param {number} hostId     - Identificação do Host
+   *
+   * @return {HTMLDivElement}   - Um element div
+   */
+  function createLinkActions(hostId) {
+    const div = document.createElement('div')
+    div.classList.add('actions')
+
+    const editButton = createEditButton(hostId)
+    const removeButton = createRemoveButton(hostId)
+
+    div.appendChild(editButton)
+    div.appendChild(removeButton)
+
+    return div
   }
 
   /**
