@@ -119,7 +119,7 @@ function HostsComponent() {
    *
    * @param {number} hostId   - Identificação do Host
    *
-   * @return {HTMLElement}    -  Um elemento <span>
+   * @return {HTMLSpanElement}    -  Um elemento <span>
    */
   function createRemoveButton(hostId) {
     const span = document.createElement('span')
