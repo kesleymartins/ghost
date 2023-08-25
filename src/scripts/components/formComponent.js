@@ -108,6 +108,7 @@ function FormComponent() {
       const newHost = buildNewHost()
 
       hostsStore.addHost(newHost)
+      hostsComponent.update()
       tabsComponent.changeToTab(Tabs.HOSTS)
     })
   }
