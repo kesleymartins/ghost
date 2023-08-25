@@ -75,15 +75,6 @@ function TabsComponent() {
    * @private
    */
   function activateTab() {
-    switch (activeTab) {
-      case Tabs.HOSTS:
-        hostsComponent.update()
-        break
-      case Tabs.FORM:
-         formComponent.resetForm()
-        break
-    }
-
     tabs.forEach(tab => {
       if (tab.getAttribute('data-tab') === activeTab) {
         tab.classList.add('is-active')
