@@ -44,6 +44,12 @@ function FormComponent() {
   }
 
   /**
+   * Prepara o formulário para a criação de um novo host
+   */
+  this.setupForNewHost = () => {
+    resetForm()
+  }
+
    * Limpa os dados do formulário e remove 
    * informações de successo e erro
    *
