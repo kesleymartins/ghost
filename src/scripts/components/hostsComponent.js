@@ -197,6 +197,11 @@ function HostsComponent() {
     img.setAttribute('src', './icons/edit.svg')
     img.setAttribute('alt', 'edit icon')
 
+    span.addEventListener('click', () => {
+      formComponent.setupForEditHost(hostId)
+      tabsComponent.changeToTab(Tabs.FORM)
+    })
+
     span.appendChild(img)
 
     return span
