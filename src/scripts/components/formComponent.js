@@ -1,5 +1,6 @@
 import { Tabs } from '../enums/tabs.js'
 import { HostsStore } from '../stores/hostsStore.js'
+import { HostsComponent } from './hostsComponent.js'
 import { TabsComponent } from './tabsComponent.js'
 
 /**
@@ -23,15 +24,20 @@ function FormComponent() {
   /** @type {TabsComponent} */
   let tabsComponent
 
+  /** @type {HostsComponent} */
+  let hostsComponent
+
   /**
    * Lógica de inicialização
    *
    * @param {HostsStore} hs     - Instância de HostsStore
    * @param {TabsComponent} tc  - Instância de TabsComponent
+   * @param {HostsComponent} hc - Instância de HostsComponent
    */
-  this.mount = (hs, tc) => {
+  this.mount = (hs, tc, hc) => {
     hostsStore = hs
     tabsComponent = tc
+    hostsComponent = hc
 
     setupSubmitEvent()
     setupValidationEvent()
