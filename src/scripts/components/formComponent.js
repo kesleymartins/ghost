@@ -40,8 +40,10 @@ function FormComponent() {
   /**
    * Limpa os dados do formulário e remove 
    * informações de successo e erro
+   *
+   * @private
    */
-  this.resetForm = () => {
+  function resetForm() {
     formElement.reset()
 
     const classesToRemove = ['has-error', 'ok']  
