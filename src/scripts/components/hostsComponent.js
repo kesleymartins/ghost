@@ -1,4 +1,7 @@
+import { Tabs } from "../enums/tabs.js"
 import { HostsStore } from "../stores/hostsStore.js"
+import { FormComponent } from "./formComponent.js"
+import { TabsComponent } from "./tabsComponent.js"
 
 /**
  * Componente para realizar a listagem de Hosts 
@@ -15,13 +18,24 @@ function HostsComponent() {
   /** @type {HostsStore} */
   let hostsStore
 
+  /** @type {TabsComponent} */
+  let tabsComponent
+
+  /** @type {FormComponent} */
+  let formComponent
+
   /**
    * Lógica de inicialização
    *
-   * @param {HostsStore} hs - Instância de HostsStore
+   * @param {HostsStore} hs     - Instância de HostsStore
+   * @param {TabsComponent} tc  - Instância de TabsComponent
+   * @param {FormComponent} fc  - Instância de FormComponent
    */
-  this.mount = (hs) => {
+  this.mount = (hs, tc, fc) => {
     hostsStore = hs
+    tabsComponent = tc
+    formComponent = fc
+    
     updateView()
   }
 
