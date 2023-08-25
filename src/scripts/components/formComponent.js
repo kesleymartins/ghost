@@ -158,7 +158,8 @@ function FormComponent() {
 
     return {
       "name": formData.get('name'),
-      "url": `${formData.get('protocol')}://${formData.get('url')}`
+      "domain": formData.get('domain'),
+      "protocol": formData.get('protocol')
     }
   }
 }

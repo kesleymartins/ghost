@@ -118,10 +118,12 @@ function HostsComponent() {
     const p = document.createElement('p')
     const small = document.createElement('small')
 
-    a.setAttribute('href', host.url)
+    const url = `${host.protocol}://${host.domain}`
+
+    a.setAttribute('href', url)
     a.setAttribute('target', '_blank')
     p.innerText = host.name
-    small.innerText = host.url
+    small.innerText = url 
     
     a.appendChild(p)
     a.appendChild(small)
