@@ -21,7 +21,7 @@ function HostsStore() {
   /**
    * Adiciona um host no localStorage
    *
-   * @param {Host} newHost
+   * @param {Host} newHost    - Dados do host para salvar
    */
   this.addHost = (newHost) => {
     const id = this.data.length
@@ -34,10 +34,9 @@ function HostsStore() {
   /**
    * Remove um Host pelo Id 
    * 
-   * @param {number} hostId
+   * @param {number} hostId     - Identificação do Host 
    */
   this.removeHost = (hostId) => {
-    this.fetchHosts()
     this.data = this.data.filter(host => host.id !== hostId)
     localStorage.setItem(storageName, JSON.stringify(this.data))
   }
