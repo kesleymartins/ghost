@@ -64,6 +64,11 @@ function TabsComponent() {
         }
 
         activeTab = tab.getAttribute('data-tab')
+
+        if (activeTab == Tabs.FORM) {
+          formComponent.setupForNewHost()
+        }
+
         activateTab()
       })
     }) 
