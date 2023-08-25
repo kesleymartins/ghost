@@ -16,7 +16,19 @@ function HostsStore() {
   this.fetchHosts = () => {
     const data = JSON.parse(localStorage.getItem(storageName))
     this.data = data ? data : []
-  } 
+  }
+  
+  /**
+   * Busca um host pelo id
+   * 
+   * @param {number} hostId   - Identificação do host
+   *
+   * @returns {Host}
+   */
+  this.fetchById = (hostId) => {
+    const host = this.data.filter(host => host.id === hostId)[0]
+    return host
+  }
 
   /**
    * Adiciona um host no localStorage
