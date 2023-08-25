@@ -97,7 +97,7 @@ function HostsComponent() {
    *
    * @param {Host} host 
    *
-   * @return {HTMLAnchorElement}      - um elemento <a>
+   * @returns {HTMLAnchorElement}      - um elemento <a>
    */
   function createLink(host) {
     const a = document.createElement('a')
@@ -122,7 +122,7 @@ function HostsComponent() {
    *
    * @param {number} hostId     - Identificação do Host
    *
-   * @return {HTMLDivElement}   - Um element div
+   * @returns {HTMLDivElement}   - Um element div
    */
   function createLinkActions(hostId) {
     const div = document.createElement('div')
@@ -144,7 +144,7 @@ function HostsComponent() {
    *
    * @param {number} hostId   - Identificação do Host
    *
-   * @return {HTMLSpanElement}    -  Um elemento <span>
+   * @returns {HTMLSpanElement}    -  Um elemento <span>
    */
   function createRemoveButton(hostId) {
     const span = document.createElement('span')
@@ -173,7 +173,7 @@ function HostsComponent() {
    *
    * @param {number} hostId     - Identificação do host
    *
-   * @return {HTMLSpanElement}  - um elemento <span>
+   * @returns {HTMLSpanElement}  - um elemento <span>
    */
   function createEditButton(hostId) {
     const span = document.createElement('span')

@@ -126,7 +126,7 @@ function FormComponent() {
    * 
    * @private
    * 
-   * @return {Host}
+   * @returns {Host}
    */
   function buildNewHost() {
     const formData = new FormData(formElement)
