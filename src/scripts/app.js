@@ -10,6 +10,6 @@ const hostsComponent = new HostsComponent()
 const tabsComponent = new TabsComponent()
 const formComponent = new FormComponent()
 
-hostsComponent.mount(hostsStore)
-formComponent.mount(hostsStore, tabsComponent)
 tabsComponent.mount(hostsComponent, formComponent, Tabs.HOSTS)
+formComponent.mount(hostsStore, tabsComponent, hostsComponent)
+hostsComponent.mount(hostsStore, tabsComponent, formComponent)
