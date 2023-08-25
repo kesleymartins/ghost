@@ -50,6 +50,18 @@ function FormComponent() {
     resetForm()
   }
 
+  /**
+   * Prepara o formulário para a edição de um host
+   */
+  this.setupForEditHost = (hostId) => {
+    resetForm()
+    
+    const host = hostsStore.fetchById(hostId)
+    
+    // fill form with host data
+  }
+
+  /**
    * Limpa os dados do formulário e remove 
    * informações de successo e erro
    *
