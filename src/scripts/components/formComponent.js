@@ -58,7 +58,22 @@ function FormComponent() {
     
     const host = hostsStore.fetchById(hostId)
     
-    // fill form with host data
+    fillForm(host)
+  }
+  
+  /**
+   * Preenche o formulário com as informações do host
+   *
+   * @param {Host} host - dados de um host
+   *
+   * @private
+   */
+  function fillForm(host) {
+    const nameField = formElement.querySelector('input[name="name"]')
+    const domainField = formElement.querySelector('input[name="domain"]')
+
+    nameField.value = host.name
+    domainField.value = host.domain
   }
 
   /**
