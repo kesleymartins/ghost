@@ -41,7 +41,24 @@ function HostsStore() {
     this.data.push(newHost)
     localStorage.setItem(storageName, JSON.stringify(this.data))
   }
-  
+ 
+  /**
+   * Atualiza um host
+   *
+   * @param {Host} updatedHost - Instancia atualizada de um host
+   */
+  this.updateHost = (updatedHost) => {
+    this.data = this.data.map(host => {
+      if (host.id == updatedHost.id) {
+        return updatedHost
+      }
+
+      return host
+    })
+
+    localStorage.setItem(storageName, JSON.stringify(this.data))
+  }
+
   /**
    * Remove um Host pelo Id 
    * 
