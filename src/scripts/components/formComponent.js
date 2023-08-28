@@ -54,10 +54,9 @@ function FormComponent() {
    * Prepara o formulário para a edição de um host
    */
   this.setupForEditHost = (hostId) => {
-    resetForm()
-    
     const host = hostsStore.fetchById(hostId)
     
+    resetForm()
     fillForm(host)
   }
   
@@ -124,7 +123,6 @@ function FormComponent() {
   function setupSubmitEvent() {
     formElement.addEventListener('submit', (event) => {
       event.preventDefault()
-      
       validateForm()
 
       if (false === formIsValid) {
