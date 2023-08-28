@@ -69,9 +69,11 @@ function FormComponent() {
    * @private
    */
   function fillForm(host) {
+    const idField = formElement.querySelector('input[name="id"]')
     const nameField = formElement.querySelector('input[name="name"]')
     const domainField = formElement.querySelector('input[name="domain"]')
 
+    idField.value = host.id
     nameField.value = host.name
     domainField.value = host.domain
   }
