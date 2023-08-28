@@ -181,6 +181,7 @@ function FormComponent() {
     const formData = new FormData(formElement)
 
     return {
+      "id": formData.get('id'),
       "name": formData.get('name'),
       "domain": formData.get('domain'),
       "protocol": formData.get('protocol')
