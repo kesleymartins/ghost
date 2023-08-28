@@ -93,13 +93,18 @@ function FormComponent() {
    * @private
    */
   function resetForm() {
-    formElement.reset()
+    const textFields = ['id', 'name', 'domain']
 
-    const classesToRemove = ['has-error', 'ok']  
-    
-    formInputs.forEach(input => {
-      classesToRemove.forEach(className => input.classList.remove(className)) 
+    textFields.forEach(name => {
+      const input = formElement.querySelector(`input[name=${name}]`)
+      
+      input.value = ''
+      input.classList.remove('has-error', 'ok')
     })
+
+    const protocols = document.querySelectorAll('input[name="protocol"]')
+    const httpField = protocols[0]
+    httpField.checked = true
   }
 
   /**
