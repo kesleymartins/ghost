@@ -35,7 +35,7 @@ function HostsStore() {
    * @param {Host} newHost    - Dados do host para salvar
    */
   this.addHost = (newHost) => {
-    newHost.id = this.data.length
+    newHost.id = this.data.length + 1
 
     this.data.push(newHost)
     localStorage.setItem(storageName, JSON.stringify(this.data))
