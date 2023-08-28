@@ -131,8 +131,12 @@ function FormComponent() {
       
       const host = buildHost()
 
+      if (host.id) {
+        hostsStore.updateHost(host)
+      } else {
+        hostsStore.addHost(host)
+      }
 
-      hostsStore.addHost(newHost)
       hostsComponent.update()
       tabsComponent.changeToTab(Tabs.HOSTS)
     })
