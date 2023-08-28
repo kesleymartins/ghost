@@ -128,8 +128,9 @@ function FormComponent() {
       if (false === formIsValid) {
         return
       }
+      
+      const host = buildHost()
 
-      const newHost = buildNewHost()
 
       hostsStore.addHost(newHost)
       hostsComponent.update()
@@ -177,7 +178,7 @@ function FormComponent() {
    * 
    * @returns {Host}
    */
-  function buildNewHost() {
+  function buildHost() {
     const formData = new FormData(formElement)
 
     return {
