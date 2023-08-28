@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Ghost</title>
   <link rel="stylesheet" type="text/css" href="styles/reset.css">
   <link rel="stylesheet" type="text/css" href="styles/app.css">
-  <script type="module" src="scripts/app.js" defer></script>
 </head>
 <body>
   <header class="header">
@@ -37,35 +36,37 @@
       <div id="form" data-section="form" class="form-component">
         <form>
           <fieldset>
-            <input id="id" name="id" type="hidden">
+            <div class="field">
+              <input id="id" name="id" type="hidden">
+            </div>
 
-            <section class="field">
+            <div class="field">
               <input id="name" class="input" name="name" type="text" placeholder="name">
               <span id="name-error" class="error-message">
                 Campo requerido
               </span>
-            </section>
+            </div>
 
-            <section class="field">
+            <div class="field">
               <input id="domain" class="input" name="domain" type="text" placeholder="url">
               <span id="url-error" class="error-message">
                 Campo requerido
               </span>
-            </section>  
+            </div>  
           </fieldset>
 
           <fieldset class="protocol">
             <legend>Protocolo a ser prefixado:</legend>
 
-            <section class="item">
-              <input type="radio" id="protocol-2" name="protocol" value="http" checked />
+            <div class="item">
+              <input type="radio" id="protocol-2" name="protocol" value="http" checked>
               <label for="protocol-2">http</label>
-            </section>
+            </div>
 
-            <section class="item">
-              <input type="radio" id="protocol-1" name="protocol" value="https" />
+            <div class="item">
+              <input type="radio" id="protocol-1" name="protocol" value="https">
               <label for="protocol-1">https</label>
-            </section>
+            </div>
           </fieldset>
 
           <button type="submit">Salvar</button>
@@ -83,5 +84,7 @@
       <img src="./icons/iconmonstr.svg" alt="github icon">
     </a>
   </footer>
+
+  <script type="module" src="scripts/app.js"></script>
 </body>
 </html>
