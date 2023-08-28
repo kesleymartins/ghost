@@ -26,8 +26,7 @@ function HostsStore() {
    * @returns {Host}
    */
   this.fetchById = (hostId) => {
-    const host = this.data.filter(host => host.id === hostId)[0]
-    return host
+    return this.data.filter(host => host.id === hostId)[0]
   }
  
   /**
