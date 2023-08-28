@@ -72,10 +72,19 @@ function FormComponent() {
     const idField = formElement.querySelector('input[name="id"]')
     const nameField = formElement.querySelector('input[name="name"]')
     const domainField = formElement.querySelector('input[name="domain"]')
+    const protocols = formElement.querySelectorAll('input[name="protocol"]')
 
     idField.value = host.id
     nameField.value = host.name
     domainField.value = host.domain
+
+    protocols.forEach(protocol => {
+      if (protocol.value != host.protocol) {
+        return
+      }
+
+      protocol.checked = true
+    })
   }
 
   /**
