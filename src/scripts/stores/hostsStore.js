@@ -29,9 +29,9 @@ function HostsStore() {
     const host = this.data.filter(host => host.id === hostId)[0]
     return host
   }
-
+ 
   /**
-   * Adiciona um host no localStorage
+   * Adiciona um host
    *
    * @param {Host} newHost    - Dados do host para salvar
    */
