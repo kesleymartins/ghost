@@ -97,6 +97,10 @@ a {
   display: block;
   color: black;
   cursor: pointer;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hosts-component ul li a p {
