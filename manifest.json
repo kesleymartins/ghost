@@ -4,7 +4,9 @@
   "version": "1.0",
   "description": "salva suas urls",
   "icons": {
-      "68": "./logo.png"
+      "16": "./icons/16.png",
+      "48": "./icons/48.png",
+      "128": "./icons/128.png"
   },
   "action": {
       "default_popup": "/src/index.html"
